@@ -38,7 +38,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
         with:
-          username: qwop99
+          username: ${{ secrets.DOCKER_HUB_USER }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       # Extract metadata (tags, labels) for Docker
@@ -47,7 +47,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: techxuexi/techxuexi
+          images: qwop99/techxuexi
       - name: Docker Setup QEMU
         # You may pin to the exact commit or the version.
         # uses: docker/setup-qemu-action@27d0a4f181a40b142cce983c5393082c365d1480
